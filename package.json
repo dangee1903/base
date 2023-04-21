@@ -16,7 +16,6 @@
     "node": "16.18.0"
   },
   "scripts": {
-    "prepare": "husky install .config/husky",
     "setup": "npm install && run-p install-link:*",
     "install-link:client": "cd client && yarn install && cd ..",
     "install-link:server": "cd server && yarn install && cd ..",
