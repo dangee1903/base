@@ -1,0 +1,41 @@
+{
+  "name": "lineBot",
+  "version": "1.0.0",
+  "description": "Jvb Line Bot",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "command-line-args": "5.2.1",
+    "fs-extra": "10.0.1",
+    "husky": "8.0.3",
+    "npm-run-all": "4.1.5"
+  },
+  "engines": {
+    "node": "16.18.0"
+  },
+  "scripts": {
+    "prepare": "husky install .config/husky",
+    "setup": "npm install && run-p install-link:*",
+    "install-link:client": "cd client && yarn install && cd ..",
+    "install-link:server": "cd server && yarn install && cd ..",
+    "build": "npm install && run-p build-link:*",
+    "build-link:client": "cd client && yarn build && cd ..",
+    "build-link:server": "cd server && yarn start:build && cd ..",
+    "lint": "run-p lint:*",
+    "lint:server": "cd server && yarn lint && cd ..",
+    "lint:client": "cd client && yarn lint && cd ..",
+    "pre-commit": "yarn lint"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn pre-commit"
+    }
+  }
+}
